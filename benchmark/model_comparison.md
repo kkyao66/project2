@@ -32,11 +32,11 @@ For data generation for each language, we use the model that performed the best.
 
 | TTS Model  |   avg_similarity |   avg_score |   good_ratio |   count |
 |------------|------------------|-------------|--------------|---------|
-| index-tts  | 0.945053         | 3.044935    | 0.596667     | 300     |
-| fishspeech | 0.935020         | 3.014727    | 0.573333     | 300     |
-| higgs-audio| 0.907208         | 3.034756    | 0.526667     | 300     |
-| CosyVoice  | 0.740156         | 3.044480    | 0.196667     | 300     |
-| chatterbox | 0.674796         | 2.965413    | 0.016667     | 300     |
+| index-tts  | 0.945053         | 3.034010    | 0.596667     | 300     |
+| higgs-audio| 0.908063         | 3.038115    | 0.573333     | 300     |
+| fishspeech | 0.935148         | 3.023294    | 0.526667     | 300     |
+| chatterbox | 0.911470         | 2.642104    | 0.196667     | 300     |
+| CosyVoice  | 0.740343         | 3.020429    | 0.016667     | 300     |
 
 ### Model Comparison for French Audio Generation
 
