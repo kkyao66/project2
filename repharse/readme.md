@@ -33,7 +33,7 @@ pwd
 Expected path pattern:
 
 /users/<YOUR_USER>/proj/rephrase_clevr
-2) (Optional) Start an interactive GPU shell
+## 2) (Optional) Start an interactive GPU shell
 GPU is strongly recommended for a 7B-class model. If you only run the dataset dump step (Section 4), GPU is not required.
 
 srun -A <project_account> --gres=gpu:1 --mem=<memory> --time=<walltime> --pty bash
@@ -43,7 +43,7 @@ Use values appropriate for your project policy.
 
 If you are not inside an srun GPU session, torch.cuda.is_available() will typically be False.
 
-3) Activate the conda environment
+## 3) Activate the conda environment
 Inside the node (login or GPU session):
 
 source ~/.bashrc
@@ -65,7 +65,7 @@ CUDA: True if running inside a GPU srun session
 
 all imports succeed
 
-4) Dataset source and dump (stream first N samples)
+## 4) Dataset source and dump (stream first N samples)
 4.1 Dataset source (where “CLEVR” comes from)
 The CLEVR examples used here are not a standalone dataset. They are loaded from the Hugging Face dataset:
 
@@ -123,7 +123,7 @@ line count equals 1000
 
 each line is a JSON object containing id, data_source, conversations
 
-5) Rephrase user turns only (Transformers)
+## 5) Rephrase user turns only (Transformers)
 This step loads an instruction-tuned LLM and rewrites only user turns to be more natural and spoken, without changing meaning. Assistant turns are kept unchanged.
 
 5.1 Rephrasing rules enforced
@@ -145,7 +145,7 @@ python rephrase_clevr_1000.py \
   --infile clevr_first1000_raw.jsonl \
   --outfile clevr_first1000_rephrased.jsonl
 
-6) Verify outputs
+## 6) Verify outputs
 
 Line count:
 
@@ -178,7 +178,7 @@ Expected (for this workflow):
 
 turn_count_distribution: {2: 1000}
 
-7) Outputs
+## 7) Outputs
 
 This pipeline produces:
 
@@ -190,7 +190,7 @@ rephrase_clevr_1000.py
 
 clevr_first1000_rephrased.jsonl
 
-8) Parameters you may customize (optional)
+## 8) Parameters you may customize (optional)
 
 Dump size: edit N in dump_clevr_1000.py
 
@@ -207,5 +207,6 @@ python rephrase_clevr_1000.py \
   --max_new_tokens 96 \
   --infile clevr_first1000_raw.jsonl \
   --outfile clevr_first1000_rephrased.jsonl
+
 
 
