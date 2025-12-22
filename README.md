@@ -9,8 +9,6 @@ This repository builds **train-ready Image+Audio→Text instruction data** by ex
 
 ## Pipeline at a Glance
 
-## Pipeline at a Glance
-
 ```mermaid
 flowchart TB
   A[Source instruction data<br/>(image, user text, assistant text)]
