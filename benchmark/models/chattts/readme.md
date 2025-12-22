@@ -16,74 +16,115 @@ This guide is **CLI/Python-only** (no WebUI, no Docker) and is written to be **c
 
 Activate your environment (example):
 
-
+```bash
 source ~/.bashrc
 conda activate <your_env>
-2) Repository Setup
+````
+
+---
+
+## 2) Repository Setup
+
 Clone ChatTTS:
 
+```bash
 mkdir -p ~/tts_bringup
 cd ~/tts_bringup
 git clone https://github.com/2noise/ChatTTS.git
 cd ChatTTS
+```
+
 Relevant structure (may vary by commit):
 
+```text
+ChatTTS/
+├── ChatTTS/
+│   ├── core.py
+│   └── ...
+├── examples/
+│   └── cmd/
+│       └── run.py
+└── requirements.txt
+```
 
-3) Install Dependencies (Minimal, Tested)
+---
+
+## 3) Install Dependencies (Minimal, Tested)
+
 Install Python dependencies:
 
-
+```bash
 pip install -U pip
 pip install -r requirements.txt
+```
+
 Additional packages commonly required in practice:
 
-
+```bash
 pip install soundfile numpy
+```
+
 Notes:
 
-ffmpeg warnings can be ignored if you only write WAV files via soundfile.
+* `ffmpeg` warnings can be ignored if you only write WAV files via `soundfile`.
+* `nemo_text_processing` / `WeTextProcessing` warnings are typically non-fatal for basic English synthesis.
 
-nemo_text_processing / WeTextProcessing warnings are typically non-fatal for basic English synthesis.
+---
 
-4) Hugging Face Access (Model Download)
+## 4) Hugging Face Access (Model Download)
+
 ChatTTS supports automatic model download via Hugging Face.
 
 Check whether you are authenticated:
 
-
+```bash
 hf auth whoami
+```
+
 If not logged in:
 
+```bash
 hf auth login
+```
+
 No manual checkpoint handling is required for the basic bring-up path.
 
-5) Minimal Bring-up Test (CLI)
+---
+
+## 5) Minimal Bring-up Test (CLI)
+
 Run a single-sentence synthesis test using the provided example CLI:
 
-
+```bash
 python examples/cmd/run.py \
   --source hf \
   "This is a short test sentence for ChatTTS bring up."
+```
+
 Expected behavior:
 
-Model initializes successfully
-
-Audio is generated
-
-An output audio file is written to the working directory (default behavior may depend on the example script)
+* Model initializes successfully
+* Audio is generated
+* An output audio file is written to the working directory (exact filename/format depends on the example script)
 
 Non-fatal warnings you may see (typically safe to ignore for basic English):
 
+```text
 Package nemo_text_processing not found
 WeTextProcessing not found
 ffmpeg not found
+```
 
-6) Benchmark-Friendly WAV Output (Python API)
-For benchmarking, we recommend forcing WAV (PCM) output at a fixed sample rate.
-The most reliable method is to use the Python API + soundfile.
+---
 
-Create a script run_chattts_benchmark.py:
+## 6) Benchmark-Friendly WAV Output (Python API)
 
+For benchmarking, we recommend forcing **WAV (PCM)** output at a fixed sample rate.
+The most reliable method is to use the Python API + `soundfile`.
+
+Create a script `run_chattts_benchmark.py`:
+
+```bash
 cat > run_chattts_benchmark.py << 'PY'
 import ChatTTS
 import torch
@@ -103,20 +144,34 @@ wavs = chat.infer([TEXT])
 sf.write(OUT_WAV, wavs[0], SR)
 print(f"[OK] Saved {OUT_WAV} (sr={SR})")
 PY
+```
+
 Run it:
 
+```bash
 python run_chattts_benchmark.py
 ls -lh chattts_demo_en.wav
-7) Recommended HPC Usage (Bristen / Slurm)
+```
+
+---
+
+## 7) Recommended HPC Usage (Bristen / Slurm)
+
 On Bristen (or similar Slurm clusters), run on a GPU node:
 
+```bash
 srun -A <project_account> --gres=gpu:1 --mem=<memory> --time=<walltime> --pty bash
+```
+
 Then:
 
+```bash
 source ~/.bashrc
 conda activate <your_env>
 
 nvidia-smi
 python -c "import torch; print('cuda?', torch.cuda.is_available())"
+```
+
 Run the bring-up commands from Sections 5–6 inside this allocation.
 
