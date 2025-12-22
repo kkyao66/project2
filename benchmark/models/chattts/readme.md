@@ -33,20 +33,6 @@ cd ~/tts_bringup
 git clone https://github.com/2noise/ChatTTS.git
 cd ChatTTS
 ```
-
-Relevant structure (may vary by commit):
-
-```text
-ChatTTS/
-├── ChatTTS/
-│   ├── core.py
-│   └── ...
-├── examples/
-│   └── cmd/
-│       └── run.py
-└── requirements.txt
-```
-
 ---
 
 ## 3) Install Dependencies (Minimal, Tested)
@@ -174,4 +160,5 @@ python -c "import torch; print('cuda?', torch.cuda.is_available())"
 ```
 
 Run the bring-up commands from Sections 5–6 inside this allocation.
+
 
