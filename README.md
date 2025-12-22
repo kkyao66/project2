@@ -205,7 +205,7 @@ Generated audio and manifests follow a standardized layout:
 - logs for reproducibility
 
 Benchmark outputs live under: [`benchmark/output/`](benchmark/output)
-**Final triplet dataset (Hugging Face):** [TBD](<HF_DATASET_URL>)
+**Final triplet dataset (Hugging Face):** [[TBD](<HF_DATASET_URL>)](https://huggingface.co/datasets/kkkyao/triplets_audio_image_text_v1)
 
 ### Triplet Dataset Summary (Train-Ready Artifacts)
 
