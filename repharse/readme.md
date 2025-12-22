@@ -1,9 +1,9 @@
-# Rephrase CLEVR (First N Samples) on Bristen — Reproducible Recipe
+# Rephrase CLEVR (First N Samples) on Bristen — Reproducible Recipe(LLVAV)
 
 This document describes how to reproduce the CLEVR rephrasing pipeline on **CSCS Alps (Bristen)**. The goal is to:
 
-1. Load the **CLEVR subset** from the Hugging Face dataset **`mvp-lab/LLaVA-OneVision-1.5-Instruct-Data`**  
-2. Stream and dump the first **N** examples to JSONL  
+1. Load the **CLEVR subset** from the Hugging Face dataset **`mvp-lab/LLaVA-OneVision-1.5-Instruct-Data`**
+2. Stream and dump the first **N** examples to JSONL
 3. Rephrase **user turns only** into a more natural, spoken style while preserving meaning
 
 ---
@@ -22,56 +22,87 @@ You have:
 ## 1) Login and create a working directory
 
 On your local machine:
-***bash
+
+```bash
 ssh bristen
+````
 
 On bristen:
 
+```bash
 mkdir -p ~/proj/rephrase_clevr
 cd ~/proj/rephrase_clevr
 pwd
+```
+
 Expected path pattern:
 
+```text
 /users/<YOUR_USER>/proj/rephrase_clevr
+```
+
+---
+
 ## 2) (Optional) Start an interactive GPU shell
+
 GPU is strongly recommended for a 7B-class model. If you only run the dataset dump step (Section 4), GPU is not required.
 
+```bash
 srun -A <project_account> --gres=gpu:1 --mem=<memory> --time=<walltime> --pty bash
+```
+
 Notes:
 
-Use values appropriate for your project policy.
+* Use values appropriate for your project policy.
+* If you are not inside an `srun` GPU session, `torch.cuda.is_available()` will typically be `False`.
 
-If you are not inside an srun GPU session, torch.cuda.is_available() will typically be False.
+---
 
 ## 3) Activate the conda environment
+
 Inside the node (login or GPU session):
 
+```bash
 source ~/.bashrc
 conda activate <your_env>
+```
+
 If your shell does not auto-initialize conda, explicitly load it (x86 example):
 
+```bash
 export PATH=/users/$USER/miniconda3_x86/bin:$PATH
 source /users/$USER/miniconda3_x86/etc/profile.d/conda.sh
 conda activate <your_env>
+```
+
 Sanity checks:
 
+```bash
 python -c "import torch; print('CUDA:', torch.cuda.is_available())"
 python -c "import transformers; print('transformers OK')"
 python -c "import datasets; print('datasets OK')"
 python -c "import tqdm; print('tqdm OK')"
+```
+
 Expected:
 
-CUDA: True if running inside a GPU srun session
+* `CUDA: True` if running inside a GPU `srun` session
+* All imports succeed
 
-all imports succeed
+---
 
 ## 4) Dataset source and dump (stream first N samples)
-4.1 Dataset source (where “CLEVR” comes from)
-The CLEVR examples used here are not a standalone dataset. They are loaded from the Hugging Face dataset:
 
-mvp-lab/LLaVA-OneVision-1.5-Instruct-Data
+### 4.1 Dataset source (where “CLEVR” comes from)
 
-This dataset provides multiple subsets/configurations. In this pipeline, we select the CLEVR subset by passing config_name="CLEVR" to datasets.load_dataset, i.e.:
+The CLEVR examples used here are **not a standalone dataset**. They are loaded from the Hugging Face dataset:
+
+* `mvp-lab/LLaVA-OneVision-1.5-Instruct-Data`
+
+This dataset provides multiple subsets/configurations. In this pipeline, we select the **CLEVR subset** by passing `config_name="CLEVR"` to `datasets.load_dataset`, i.e.:
+
+```python
+from datasets import load_dataset
 
 ds = load_dataset(
     "mvp-lab/LLaVA-OneVision-1.5-Instruct-Data",
@@ -79,11 +110,15 @@ ds = load_dataset(
     split="train",
     streaming=True
 )
-We then stream the train split and take the first N samples (default N=1000).
+```
 
-4.2 Dump script (streaming)
+We then stream the `train` split and take the first **N** samples (default `N=1000`).
+
+### 4.2 Dump script (streaming)
+
 Create the script:
 
+```bash
 cat > dump_clevr_1000.py << 'PY'
 import json
 from datasets import load_dataset
@@ -110,57 +145,77 @@ with open(OUT, "w", encoding="utf-8") as f:
 
 print(f"[OK] wrote {N} samples -> {OUT}")
 PY
+```
+
 Run it:
 
+```bash
 python dump_clevr_1000.py
+```
+
 Verify:
 
+```bash
 wc -l clevr_first1000_raw.jsonl
 head -n 1 clevr_first1000_raw.jsonl
+```
+
 Expected:
 
-line count equals 1000
+* Line count equals `1000`
+* Each line is a JSON object containing `id`, `data_source`, `conversations`
 
-each line is a JSON object containing id, data_source, conversations
+---
 
 ## 5) Rephrase user turns only (Transformers)
-This step loads an instruction-tuned LLM and rewrites only user turns to be more natural and spoken, without changing meaning. Assistant turns are kept unchanged.
 
-5.1 Rephrasing rules enforced
-Do not answer the question
+This step loads an instruction-tuned LLM and rewrites **only user turns** to be more natural and spoken, without changing meaning. Assistant turns are kept unchanged.
 
-Do not add new facts
+### 5.1 Rephrasing rules enforced
 
-Output only the rewritten user utterance (no quotes, no explanations)
+* Do not answer the question
+* Do not add new facts
+* Output only the rewritten user utterance (no quotes, no explanations)
+* If a turn starts with `<image>\n`, keep `<image>` unchanged and rewrite only the remaining text
+* Context is built from previous turns only (to avoid leakage)
 
-If a turn starts with <image>\n, keep <image> unchanged and rewrite only the remaining text
+### 5.2 Create the rephrasing script
 
-Context is built from previous turns only (to avoid leakage)
+Create `rephrase_clevr_1000.py` (use the script content from your earlier section):
 
-5.2 Create the rephrasing script
-rephrase_clevr_1000.py
+```text
+(refer to the full script in this repo / earlier section)
+```
 
-5.3 Run rephrasing
+### 5.3 Run rephrasing
+
+```bash
 python rephrase_clevr_1000.py \
   --infile clevr_first1000_raw.jsonl \
   --outfile clevr_first1000_rephrased.jsonl
+```
+
+---
 
 ## 6) Verify outputs
 
 Line count:
 
+```bash
 wc -l clevr_first1000_rephrased.jsonl
-
+```
 
 Compare first sample (raw vs rephrased):
 
+```bash
 head -n 1 clevr_first1000_raw.jsonl
 echo "----"
 head -n 1 clevr_first1000_rephrased.jsonl
-
+```
 
 Check conversation turn distribution:
 
+```bash
 python - <<'PY'
 import json
 from collections import Counter
@@ -172,41 +227,46 @@ with open("clevr_first1000_rephrased.jsonl","r",encoding="utf-8") as f:
         c[len(ex["conversations"])] += 1
 print("turn_count_distribution:", dict(sorted(c.items())))
 PY
-
+```
 
 Expected (for this workflow):
 
+```text
 turn_count_distribution: {2: 1000}
+```
+
+---
 
 ## 7) Outputs
 
 This pipeline produces:
 
-dump_clevr_1000.py
+* `dump_clevr_1000.py`
+* `clevr_first1000_raw.jsonl`
+* `rephrase_clevr_1000.py`
+* `clevr_first1000_rephrased.jsonl`
 
-clevr_first1000_raw.jsonl
-
-rephrase_clevr_1000.py
-
-clevr_first1000_rephrased.jsonl
+---
 
 ## 8) Parameters you may customize (optional)
 
-Dump size: edit N in dump_clevr_1000.py
-
-Rephrase model: --model <hf_model_name>
-
-Generation length: --max_new_tokens <int>
-
-Input/output paths: --infile, --outfile
+* Dump size: edit `N` in `dump_clevr_1000.py`
+* Rephrase model: `--model <hf_model_name>`
+* Generation length: `--max_new_tokens <int>`
+* Input/output paths: `--infile`, `--outfile`
 
 Example:
 
+```bash
 python rephrase_clevr_1000.py \
   --model <your_model> \
   --max_new_tokens 96 \
   --infile clevr_first1000_raw.jsonl \
   --outfile clevr_first1000_rephrased.jsonl
+```
+
+
+
 
 
 
