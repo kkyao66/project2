@@ -1,0 +1,41 @@
+# ===== FishSpeech runtime (server + client) =====
+
+# Fix: tools/api_server.py imports pyrootutils
+pyrootutils>=1.0.14
+
+# API server (FastAPI + Uvicorn)
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+python-multipart>=0.0.9
+
+# Logging / progress
+loguru>=0.7
+tqdm>=4.66
+
+# HTTP client + msgpack (for /v1/references/list etc.)
+requests>=2.31
+msgpack>=1.0.7
+
+# Core numeric/audio I/O
+numpy>=1.26
+scipy>=1.11
+soundfile>=0.12
+
+# Tokenization / model utils (common in FishSpeech-style repos)
+tiktoken>=0.7
+tokenizers>=0.19
+safetensors>=0.4
+
+# Config / utils (often used in model codebases)
+omegaconf>=2.3
+hydra-core>=1.3
+einops>=0.8
+
+# Optional but commonly needed for audio preprocessing (safe to keep)
+librosa>=0.10
+
+# ===== NOTE =====
+# Install torch/torchaudio via conda or cluster-provided wheels to match CUDA:
+#   conda install -c pytorch -c nvidia pytorch torchaudio pytorch-cuda=12.1
+# or use your existing environment that already has torch working.
