@@ -1,6 +1,4 @@
-# Towards Train-Ready Image+Audio→Text
-Instruction Data: Reproducible TTS Benchmarking,
-Query Rewriting, and Triplet Construction
+# Towards Train-Ready Image+Audio→Text Instruction Data: Reproducible TTS Benchmarking,Query Rewriting, and Triplet Construction
 ````md
 # Towards Train-Ready Image+Audio→Text Instruction Data  
 ## Reproducible TTS Benchmarking, Query Rewriting, and Triplet Construction
@@ -11,32 +9,40 @@ This repository builds **train-ready Image+Audio→Text instruction data** by ex
 
 ## Pipeline at a Glance
 
-```text
-Source instruction data (image, user text, assistant text)
-        |
-        |------------------------------ Parallel ------------------------------|
-        |                                                                       |
-        |  Branch A: Reproducible TTS benchmarking                              |
-        |    - Generate benchmark audio (model × language × voice × text_id)    |
-        |    - Score with automatic signals (Similarity, UTMOSv2)               |
-        |    - Benchmark-time selection → best model/language/voice map         |
-        |                                                                       |
-        |  Branch B: Query rewriting (spoken-style prompts)                     |
-        |    - Rewrite user turns only (keep assistant answers unchanged)       |
-        |    - Preserve meaning; improve colloquial spoken phrasing             |
-        |                                                                       |
-        |------------------------------- Merge --------------------------------|
-                                |
-                                v
-Selected TTS configs + rephrased prompts
-        |
-        v
-Large-scale synthesis (multi-language, multi-voice)
-        |
-        v
-Triplet construction + packaging
-(image, audio_prompt) → target_text  + manifests/metadata
-````
+## Pipeline at a Glance
+
+```mermaid
+flowchart TB
+  A[Source instruction data<br/>(image, user text, assistant text)]
+
+  subgraph P[Parallel components]
+    direction LR
+
+    subgraph BA[Branch A: Reproducible TTS benchmarking]
+      direction TB
+      BA1[Generate benchmark audio<br/>(model × language × voice × text_id)]
+      BA2[Score automatic signals<br/>Similarity (Whisper→SBERT) + UTMOSv2]
+      BA3[Benchmark-time selection<br/>best model/language/voice map]
+      BA1 --> BA2 --> BA3
+    end
+
+    subgraph BB[Branch B: Query rewriting (spoken-style prompts)]
+      direction TB
+      BB1[Rewrite user turns only<br/>(keep assistant answers unchanged)]
+      BB2[Preserve meaning<br/>improve colloquial spoken phrasing]
+      BB1 --> BB2
+    end
+  end
+
+  M[Merge: selected configs + rephrased prompts]
+  S[Large-scale synthesis<br/>(multi-language, multi-voice)]
+  T[Triplet construction + packaging<br/>(image, audio_prompt) → target_text<br/>+ manifests/metadata]
+
+  A --> P
+  BA3 --> M
+  BB2 --> M
+  M --> S --> T
+
 
 **Inputs**
 
