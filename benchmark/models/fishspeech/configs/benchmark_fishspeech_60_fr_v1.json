@@ -1,0 +1,23 @@
+{
+  "benchmark_id": "benchmark_fishspeech_60_fr_v1",
+  "texts": {
+    "fr": "/users/leli/ml_project2/texts/fr_60.jsonl"
+  },
+  "audio": {
+    "sample_rate": 24000,
+    "format": "wav_pcm16"
+  },
+  "output": {
+    "audio_dir": "/iopsstor/scratch/cscs/leli/clevr_triplet_work/benchmarks/benchmark_fishspeech_60_fr_v1/audio",
+    "metadata_path": "/iopsstor/scratch/cscs/leli/clevr_triplet_work/benchmarks/benchmark_fishspeech_60_fr_v1/metadata.jsonl",
+    "logs_dir": "/iopsstor/scratch/cscs/leli/clevr_triplet_work/benchmarks/benchmark_fishspeech_60_fr_v1/logs"
+  },
+  "models": {
+    "fishspeech": {
+      "languages": ["fr"],
+      "voices": ["voice01", "voice02", "voice03", "voice04", "voice05"],
+      "voice_mode": "reference_id",
+      "inference": { "seed": 1234 }
+    }
+  }
+}
