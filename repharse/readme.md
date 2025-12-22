@@ -22,8 +22,9 @@ You have:
 ## 1) Login and create a working directory
 
 On your local machine:
-
+bash
 ssh bristen
+
 On bristen:
 
 mkdir -p ~/proj/rephrase_clevr
@@ -206,6 +207,7 @@ python rephrase_clevr_1000.py \
   --max_new_tokens 96 \
   --infile clevr_first1000_raw.jsonl \
   --outfile clevr_first1000_rephrased.jsonl
+
 
 
 
