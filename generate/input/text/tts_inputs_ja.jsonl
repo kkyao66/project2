@@ -1,0 +1,200 @@
+{"uid": "000004", "hf_id": "000004", "idx": 4, "split": "train", "row_idx": 400, "lang": "ja", "text": "<image>\n緑色の大きな物体が 青い物体と 黄色い金属物体が 横にある 緑色の物体とは"}
+{"uid": "000012", "hf_id": "000012", "idx": 12, "split": "train", "row_idx": 401, "lang": "ja", "text": "<image>\nどれだけの物体はマットまたは青いブロックですか?"}
+{"uid": "000013", "hf_id": "000013", "idx": 13, "split": "train", "row_idx": 402, "lang": "ja", "text": "<image>\n赤い金属の右側の金属ブロックは 大きい茶色の立方体の裏にある球と同じ色ですか?"}
+{"uid": "000015", "hf_id": "000015", "idx": 15, "split": "train", "row_idx": 403, "lang": "ja", "text": "<image>\n巨大な金属立方体と黄色い円筒の右側にある物体の大きさは何でしょうか?"}
+{"uid": "000023", "hf_id": "000023", "idx": 23, "split": "train", "row_idx": 404, "lang": "ja", "text": "<image>\n赤い円筒の右側にある 赤い金属の背後にあるのか?"}
+{"uid": "000025", "hf_id": "000025", "idx": 25, "split": "train", "row_idx": 405, "lang": "ja", "text": "<image>\nサイエンスが同じ大きさで 状のものが何ですか?"}
+{"uid": "000030", "hf_id": "000030", "idx": 30, "split": "train", "row_idx": 406, "lang": "ja", "text": "<image>\n黄色い輝くものが 茶色の円筒と同じ大きさなのか?"}
+{"uid": "000034", "hf_id": "000034", "idx": 34, "split": "train", "row_idx": 407, "lang": "ja", "text": "<image>\n紫色の金属シリンダーと隣にある大きなマット物体は同じ色ですか?"}
+{"uid": "000035", "hf_id": "000035", "idx": 35, "split": "train", "row_idx": 408, "lang": "ja", "text": "<image>\n赤い方と同じサイズで,どんな色ですか?"}
+{"uid": "000039", "hf_id": "000039", "idx": 39, "split": "train", "row_idx": 409, "lang": "ja", "text": "<image>\nサイアンブロックの背後に 灰色の円筒の前にある物体は どんな形をしているのでしょうか?"}
+{"uid": "000057", "hf_id": "000057", "idx": 57, "split": "train", "row_idx": 410, "lang": "ja", "text": "<image>\n巨大な黄色いマット物体の横には どれだけのゴム立方や黄色い物体が残されているか?"}
+{"uid": "000068", "hf_id": "000068", "idx": 68, "split": "train", "row_idx": 411, "lang": "ja", "text": "<image>\n大きな輝く立方形は何色?"}
+{"uid": "000070", "hf_id": "000070", "idx": 70, "split": "train", "row_idx": 412, "lang": "ja", "text": "<image>\nこの小さな茶色のキューブは,その大きな茶色の球と同じ素材でできているのか?"}
+{"uid": "000081", "hf_id": "000081", "idx": 81, "split": "train", "row_idx": 413, "lang": "ja", "text": "<image>\nその大きな輝く物体と同じ形を 持っているものは 何人あるの?"}
+{"uid": "000082", "hf_id": "000082", "idx": 82, "split": "train", "row_idx": 414, "lang": "ja", "text": "<image>\n灰色のマットシリンダーの左側の青い物体の横にある物体はどのくらい大きいのでしょうか?"}
+{"uid": "000086", "hf_id": "000086", "idx": 86, "split": "train", "row_idx": 415, "lang": "ja", "text": "<image>\n緑色のマットシリンダーの前にある紫色マット物体は 大きなブラウンボール右側の輝く物体と同じ形でしょうか?"}
+{"uid": "000087", "hf_id": "000087", "idx": 87, "split": "train", "row_idx": 416, "lang": "ja", "text": "<image>\n緑色の小さな物と同じ素材で作られている他の物は何色ですか?"}
+{"uid": "000089", "hf_id": "000089", "idx": 89, "split": "train", "row_idx": 417, "lang": "ja", "text": "<image>\nサイアン金属の物体の右側には 細かい金属球が後ろにあり 前にはゴム球がいる 小さな金属球は 何枚あるのでしょうか?"}
+{"uid": "000098", "hf_id": "000098", "idx": 98, "split": "train", "row_idx": 418, "lang": "ja", "text": "<image>\nサイアンブロックの数が サイアンブロックの数と同じでしょうか?"}
+{"uid": "000105", "hf_id": "000105", "idx": 105, "split": "train", "row_idx": 419, "lang": "ja", "text": "<image>\n大きい立方体と赤立方体の右側のボールが同じ素材でできているか?"}
+{"uid": "000107", "hf_id": "000107", "idx": 107, "split": "train", "row_idx": 420, "lang": "ja", "text": "<image>\n緑色の物体と同じ形に 灰色の金属が存在するのか?"}
+{"uid": "000109", "hf_id": "000109", "idx": 109, "split": "train", "row_idx": 421, "lang": "ja", "text": "<image>\n金属シリンダーの左側に小さな毛細球や灰色の物体がいくつあるか?"}
+{"uid": "000118", "hf_id": "000118", "idx": 118, "split": "train", "row_idx": 422, "lang": "ja", "text": "<image>\nサイアン金属の形状と同じものが どれぐらいあるの?"}
+{"uid": "000119", "hf_id": "000119", "idx": 119, "split": "train", "row_idx": 423, "lang": "ja", "text": "<image>\n茶色の物体の右側にある大きな金属物体は どんな形をしているのか?"}
+{"uid": "000121", "hf_id": "000121", "idx": 121, "split": "train", "row_idx": 424, "lang": "ja", "text": "<image>\n細かい金属物よりも小さな灰色の球が多くあるのでしょうか?"}
+{"uid": "000123", "hf_id": "000123", "idx": 123, "split": "train", "row_idx": 425, "lang": "ja", "text": "<image>\n紫色の物体の右側には 大きなシリンダーがあるの?"}
+{"uid": "000126", "hf_id": "000126", "idx": 126, "split": "train", "row_idx": 426, "lang": "ja", "text": "<image>\n黄色い金属の小さな前にある物体と サイアン金属の小さな後ろにある物体の大きさは?"}
+{"uid": "000135", "hf_id": "000135", "idx": 135, "split": "train", "row_idx": 427, "lang": "ja", "text": "<image>\n青い色で色が大きいものは 何枚あるの?"}
+{"uid": "000138", "hf_id": "000138", "idx": 138, "split": "train", "row_idx": 428, "lang": "ja", "text": "<image>\n巨大なゴムシリンダーと同じ色は 何ものでしょうか?"}
+{"uid": "000139", "hf_id": "000139", "idx": 139, "split": "train", "row_idx": 429, "lang": "ja", "text": "<image>\n大きな黄色い輝く物体の後ろに黄色い金属球が存在すると 同じ数少ない小さな赤色マット球は存在するのか?"}
+{"uid": "000147", "hf_id": "000147", "idx": 147, "split": "train", "row_idx": 430, "lang": "ja", "text": "<image>\nサイアンキューブの右側の大きなシリンダの材料は,大きな茶色の物体の背後の大きなシリンダと同じですか?"}
+{"uid": "000150", "hf_id": "000150", "idx": 150, "split": "train", "row_idx": 431, "lang": "ja", "text": "<image>\n黄色い円筒と同じ素材で作られた青い物体はどのくらいの大きさですか?"}
+{"uid": "000153", "hf_id": "000153", "idx": 153, "split": "train", "row_idx": 432, "lang": "ja", "text": "<image>\n灰色のものがどんな形?"}
+{"uid": "000155", "hf_id": "000155", "idx": 155, "split": "train", "row_idx": 433, "lang": "ja", "text": "<image>\n黄色いシリンダーは赤のサイズと同じですか?"}
+{"uid": "000159", "hf_id": "000159", "idx": 159, "split": "train", "row_idx": 434, "lang": "ja", "text": "<image>\n金属の物体は大きなマットボールと同じ色ですか?"}
+{"uid": "000161", "hf_id": "000161", "idx": 161, "split": "train", "row_idx": 435, "lang": "ja", "text": "<image>\nどれだけのゴムアイテムは 大きな黄色い物体か 小さな赤いシリンダーか?"}
+{"uid": "000163", "hf_id": "000163", "idx": 163, "split": "train", "row_idx": 436, "lang": "ja", "text": "<image>\nどれだけのボールが 細かい金属物体か 青いものでしょうか?"}
+{"uid": "000165", "hf_id": "000165", "idx": 165, "split": "train", "row_idx": 437, "lang": "ja", "text": "<image>\n紫色の小さなアイテムの右側には緑色の小さなアイテムがいくつあるのか?"}
+{"uid": "000167", "hf_id": "000167", "idx": 167, "split": "train", "row_idx": 438, "lang": "ja", "text": "<image>\n青いマットボールの前には 青いゴム立方体の左側の物体と比較して 球の数が少ないのでしょうか?"}
+{"uid": "000170", "hf_id": "000170", "idx": 170, "split": "train", "row_idx": 439, "lang": "ja", "text": "<image>\n紫色の球は 輝く球と黄色い円筒の左側にあるものと同じ素材でできているのでしょうか?"}
+{"uid": "000173", "hf_id": "000173", "idx": 173, "split": "train", "row_idx": 440, "lang": "ja", "text": "<image>\nサイズが似ているもの?"}
+{"uid": "000174", "hf_id": "000174", "idx": 174, "split": "train", "row_idx": 441, "lang": "ja", "text": "<image>\n紫色の金属のサイズと同じものはないか?"}
+{"uid": "000175", "hf_id": "000175", "idx": 175, "split": "train", "row_idx": 442, "lang": "ja", "text": "<image>\n緑色のゴム球や 黄色い金属球は 増えていますか?"}
+{"uid": "000176", "hf_id": "000176", "idx": 176, "split": "train", "row_idx": 443, "lang": "ja", "text": "<image>\nはゴムか赤のゴムか?"}
+{"uid": "000181", "hf_id": "000181", "idx": 181, "split": "train", "row_idx": 444, "lang": "ja", "text": "<image>\n灰色のブロックと同じ素材で作られた灰色のオブジェクトの大きさは何でしょうか?"}
+{"uid": "000191", "hf_id": "000191", "idx": 191, "split": "train", "row_idx": 445, "lang": "ja", "text": "<image>\n大きな紫色の物と同じ素材で作られた青い物体はどのくらいの大きさですか?"}
+{"uid": "000195", "hf_id": "000195", "idx": 195, "split": "train", "row_idx": 446, "lang": "ja", "text": "<image>\n小さな青い円筒の横にある輝く円筒はどのくらい大きいのか?"}
+{"uid": "000200", "hf_id": "000200", "idx": 200, "split": "train", "row_idx": 447, "lang": "ja", "text": "<image>\n大きな黄色いゴム球の前にある小さな物体は,サイアン色の輝く球の前にある大きな輝くブロックと同じ色ですか? はいか否かと答えましょう."}
+{"uid": "000210", "hf_id": "000210", "idx": 210, "split": "train", "row_idx": 448, "lang": "ja", "text": "<image>\n紫色のものが灰色の輝くものの大きさに一致する形は何でしょうか?"}
+{"uid": "000212", "hf_id": "000212", "idx": 212, "split": "train", "row_idx": 449, "lang": "ja", "text": "<image>\n赤色シリンダー右側の黄色い金属物体は 小さいシアンマットシリンダーと同じ大きさですか?"}
+{"uid": "000213", "hf_id": "000213", "idx": 213, "split": "train", "row_idx": 450, "lang": "ja", "text": "<image>\n青い金属の形に匹敵する茶色の物体の大きさは何でしょうか?"}
+{"uid": "000220", "hf_id": "000220", "idx": 220, "split": "train", "row_idx": 451, "lang": "ja", "text": "<image>\n青い色が薄い小さな円筒の後ろにある小さな輝く物体の左側にある小さな円筒は どんな色ですか?"}
+{"uid": "000224", "hf_id": "000224", "idx": 224, "split": "train", "row_idx": 452, "lang": "ja", "text": "<image>\n赤い物体と同じ大きさで 何物があるの?"}
+{"uid": "000226", "hf_id": "000226", "idx": 226, "split": "train", "row_idx": 453, "lang": "ja", "text": "<image>\n黄色いものが小さい緑の形と同じ形になるのは?"}
+{"uid": "000228", "hf_id": "000228", "idx": 228, "split": "train", "row_idx": 454, "lang": "ja", "text": "<image>\nサイアン物体の前にある小さな光る物体の右側にある 大きな物体の裏にある立方形は 特定の物からできているのでしょうか?"}
+{"uid": "000234", "hf_id": "000234", "idx": 234, "split": "train", "row_idx": 455, "lang": "ja", "text": "<image>\nサイアン金属ブロックの前にある物体の右側には ゴムシリンダがいくつあるか? 数字か簡潔な説明を教えてください."}
+{"uid": "000238", "hf_id": "000238", "idx": 238, "split": "train", "row_idx": 456, "lang": "ja", "text": "<image>\n写真に同じ車型が違う色で 出てくる車があるか教えて下さい 最後には答えを教えてください"}
+{"uid": "000244", "hf_id": "000244", "idx": 244, "split": "train", "row_idx": 457, "lang": "ja", "text": "<image>\n青いシリンダーか 紫色のゴムシリンダーか 何ものものでしょうか?"}
+{"uid": "000257", "hf_id": "000257", "idx": 257, "split": "train", "row_idx": 458, "lang": "ja", "text": "<image>\nマットブロックの色はどれぐらい?"}
+{"uid": "000272", "hf_id": "000272", "idx": 272, "split": "train", "row_idx": 459, "lang": "ja", "text": "<image>\n大きい 緑 の 立方 は,大きな 球 と 同じ 材料 で でき て いる の でしょ う か."}
+{"uid": "000273", "hf_id": "000273", "idx": 273, "split": "train", "row_idx": 460, "lang": "ja", "text": "<image>\n緑色のものが 立方体の前にあるのか?"}
+{"uid": "000278", "hf_id": "000278", "idx": 278, "split": "train", "row_idx": 461, "lang": "ja", "text": "<image>\n青い小さな物体の素材は 円筒と同じですか?"}
+{"uid": "000279", "hf_id": "000279", "idx": 279, "split": "train", "row_idx": 462, "lang": "ja", "text": "<image>\n大きい金属球の横にある金属物体の左側の小さなブロックの前にある 茶色の球はどの材料でできているのか?"}
+{"uid": "000282", "hf_id": "000282", "idx": 282, "split": "train", "row_idx": 463, "lang": "ja", "text": "<image>\n青い金属の小さなアイテムは 茶色のアイテムと同じ形ですか?"}
+{"uid": "000292", "hf_id": "000292", "idx": 292, "split": "train", "row_idx": 464, "lang": "ja", "text": "<image>\n紫のゴム球の前にある ブラウン球の素材は?"}
+{"uid": "000293", "hf_id": "000293", "idx": 293, "split": "train", "row_idx": 465, "lang": "ja", "text": "<image>\n大きな緑のブロックの後ろに 小さなものの右側に 大きな物体があり その形は何でしょうか?"}
+{"uid": "000294", "hf_id": "000294", "idx": 294, "split": "train", "row_idx": 466, "lang": "ja", "text": "<image>\n紫色のゴム球よりも小さな茶色のシリンダー数が少ないのでしょうか?"}
+{"uid": "000297", "hf_id": "000297", "idx": 297, "split": "train", "row_idx": 467, "lang": "ja", "text": "<image>\n赤い金属の小さな立方体 は 茶色の金属の小さな物体 より少ない の でしょ う か."}
+{"uid": "000307", "hf_id": "000307", "idx": 307, "split": "train", "row_idx": 468, "lang": "ja", "text": "<image>\n赤い小さな物は何枚が 大きな紫色の円筒と同じ素材を共有しているのでしょうか?"}
+{"uid": "000314", "hf_id": "000314", "idx": 314, "split": "train", "row_idx": 469, "lang": "ja", "text": "<image>\nマットキューブの色と一致する大きな物体の素材は?"}
+{"uid": "000319", "hf_id": "000319", "idx": 319, "split": "train", "row_idx": 470, "lang": "ja", "text": "<image>\n青い物体とサイズに一致するボールは何色ですか?"}
+{"uid": "000321", "hf_id": "000321", "idx": 321, "split": "train", "row_idx": 471, "lang": "ja", "text": "<image>\nサイアン色の色が 違うのか?"}
+{"uid": "000336", "hf_id": "000336", "idx": 336, "split": "train", "row_idx": 472, "lang": "ja", "text": "<image>\nサイアンシリンドルの右側にある大きな物の後ろにある物体は どんな色ですか?"}
+{"uid": "000346", "hf_id": "000346", "idx": 346, "split": "train", "row_idx": 473, "lang": "ja", "text": "<image>\n赤いゴムに左に小さなマット物体の右側にある 大きな物体がありますか? その形は何でしょうか?"}
+{"uid": "000355", "hf_id": "000355", "idx": 355, "split": "train", "row_idx": 474, "lang": "ja", "text": "<image>\n巨大なゴム物体と同じ色でしょうか?"}
+{"uid": "000356", "hf_id": "000356", "idx": 356, "split": "train", "row_idx": 475, "lang": "ja", "text": "<image>\n赤いマットブロックの右側にある大きなマットブロックの前にある 灰色のキューブがありますか?"}
+{"uid": "000357", "hf_id": "000357", "idx": 357, "split": "train", "row_idx": 476, "lang": "ja", "text": "<image>\n紫色の小さな物体が 小さい茶色の立方体の前にあるのは 小さい金属の小さな物体の後ろにある小ブロックと同じ物体でしょうか?"}
+{"uid": "000359", "hf_id": "000359", "idx": 359, "split": "train", "row_idx": 477, "lang": "ja", "text": "<image>\n円はゴムブロックと同じ色ですか? 同じ色ですか? それとも違うですか? 明確にするためです. 同じ色です."}
+{"uid": "000367", "hf_id": "000367", "idx": 367, "split": "train", "row_idx": 478, "lang": "ja", "text": "<image>\n紫色のゴムゴム devantの左側にある 紫色のゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴムゴ"}
+{"uid": "000378", "hf_id": "000378", "idx": 378, "split": "train", "row_idx": 479, "lang": "ja", "text": "<image>\n輝くものと同じサイズで サイアンゴムキューブがいくつあるのか?"}
+{"uid": "000384", "hf_id": "000384", "idx": 384, "split": "train", "row_idx": 480, "lang": "ja", "text": "<image>\n緑の円や茶色の球は 何枚あるの?"}
+{"uid": "000386", "hf_id": "000386", "idx": 386, "split": "train", "row_idx": 481, "lang": "ja", "text": "<image>\nサイアンブロックは 裏にあるゴムキューブと同じ大きさですか?"}
+{"uid": "000392", "hf_id": "000392", "idx": 392, "split": "train", "row_idx": 482, "lang": "ja", "text": "<image>\nサイアン物体と同じ大きさで 何物があるの?"}
+{"uid": "000400", "hf_id": "000400", "idx": 400, "split": "train", "row_idx": 483, "lang": "ja", "text": "<image>\n紫色のブロックの前にある小さな紫色のアイテムの後ろにある 小さなゴムオブジェクトの左側に 小さな黄色い立方体がありますか?"}
+{"uid": "000403", "hf_id": "000403", "idx": 403, "split": "train", "row_idx": 484, "lang": "ja", "text": "<image>\nその小さな金属の形と同じような 細かい金属の物は何枚あるの?"}
+{"uid": "000409", "hf_id": "000409", "idx": 409, "split": "train", "row_idx": 485, "lang": "ja", "text": "<image>\nその小さな金属ブロックと同じ色がある物がありますか?"}
+{"uid": "000410", "hf_id": "000410", "idx": 410, "split": "train", "row_idx": 486, "lang": "ja", "text": "<image>\nサイアン金属球よりも大きな紫色のシリンダーが少ないのか?"}
+{"uid": "000413", "hf_id": "000413", "idx": 413, "split": "train", "row_idx": 487, "lang": "ja", "text": "<image>\n小さな金属ブロックの右側にある小さな物体の裏には 大きな茶色の球がありますか?"}
+{"uid": "000414", "hf_id": "000414", "idx": 414, "split": "train", "row_idx": 488, "lang": "ja", "text": "<image>\n青い金属の小さな物体の左側のシリンダーは シアンブロックと同じ素材でできているのでしょうか?"}
+{"uid": "000425", "hf_id": "000425", "idx": 425, "split": "train", "row_idx": 489, "lang": "ja", "text": "<image>\nグレーキューブと同じ大きさで緑色の物体が存在するのか?"}
+{"uid": "000438", "hf_id": "000438", "idx": 438, "split": "train", "row_idx": 490, "lang": "ja", "text": "<image>\n立方形と同じ色があるのか? その大きさは?"}
+{"uid": "000443", "hf_id": "000443", "idx": 443, "split": "train", "row_idx": 491, "lang": "ja", "text": "<image>\n金属球の右側には 紫色の球や物体がいくつあるか?"}
+{"uid": "000445", "hf_id": "000445", "idx": 445, "split": "train", "row_idx": 492, "lang": "ja", "text": "<image>\n黄色い輝くブロックの隣にあるサイエンスが同じですか?"}
+{"uid": "000450", "hf_id": "000450", "idx": 450, "split": "train", "row_idx": 493, "lang": "ja", "text": "<image>\n細いブロックと同じ色を 共有するゴムキューブは?"}
+{"uid": "000461", "hf_id": "000461", "idx": 461, "split": "train", "row_idx": 494, "lang": "ja", "text": "<image>\n黄色いものの左側の大きな輝く球の前にある大きな金属の物体は ある色でしょうか?"}
+{"uid": "000471", "hf_id": "000471", "idx": 471, "split": "train", "row_idx": 495, "lang": "ja", "text": "<image>\n巨大なブラウンジリンドルの右側にあるゴムジリンドルの前に ブラウンジリンドルが残っているのでしょうか?"}
+{"uid": "000473", "hf_id": "000473", "idx": 473, "split": "train", "row_idx": 496, "lang": "ja", "text": "<image>\nどれだけの小さな輝くチューブが見えるか?"}
+{"uid": "000478", "hf_id": "000478", "idx": 478, "split": "train", "row_idx": 497, "lang": "ja", "text": "<image>\n巨大な金属の物体の前にある球と同じ素材で 細かいサイアンキューブが作られているのでしょうか?"}
+{"uid": "000482", "hf_id": "000482", "idx": 482, "split": "train", "row_idx": 498, "lang": "ja", "text": "<image>\n金属球の後ろにある小さな緑色の円筒は 大きな緑色の円筒と同じ素材でできているのでしょうか?"}
+{"uid": "000488", "hf_id": "000488", "idx": 488, "split": "train", "row_idx": 499, "lang": "ja", "text": "<image>\n紫色の物体が灰色の物体と同じ形で 何からできているのか?"}
+{"uid": "000490", "hf_id": "000490", "idx": 490, "split": "train", "row_idx": 500, "lang": "ja", "text": "<image>\n灰色の小さな物とゴムモノの背後に サイアン金属の物体が同じ形なのか?"}
+{"uid": "000495", "hf_id": "000495", "idx": 495, "split": "train", "row_idx": 501, "lang": "ja", "text": "<image>\n大きな円筒の前にある小さなブロックは 小さな緑色の円筒の後ろにある小さな紫色のブロックと同じ素材でできているのでしょうか?"}
+{"uid": "000499", "hf_id": "000499", "idx": 499, "split": "train", "row_idx": 502, "lang": "ja", "text": "<image>\n金属ブロックの痕跡は?"}
+{"uid": "000500", "hf_id": "000500", "idx": 500, "split": "train", "row_idx": 503, "lang": "ja", "text": "<image>\n青い金属の左側には 大きな青いシリンダー右側には 何の小さなアイテムがあるの?"}
+{"uid": "000501", "hf_id": "000501", "idx": 501, "split": "train", "row_idx": 504, "lang": "ja", "text": "<image>\n灰色の円筒の左側の小さなものはどんな色ですか?"}
+{"uid": "000505", "hf_id": "000505", "idx": 505, "split": "train", "row_idx": 505, "lang": "ja", "text": "<image>\n大きい茶色の球の右側には 小さいサイアン物体がいるのか? その裏には どれだけの小さな輝く物体がいるのか?"}
+{"uid": "000506", "hf_id": "000506", "idx": 506, "split": "train", "row_idx": 506, "lang": "ja", "text": "<image>\nサイアンマット球の左側のシリンダーは どんな材料ですか?"}
+{"uid": "000509", "hf_id": "000509", "idx": 509, "split": "train", "row_idx": 507, "lang": "ja", "text": "<image>\nサイアン光る立方体の裏には 何の灰色の物体がいるのか?"}
+{"uid": "000523", "hf_id": "000523", "idx": 523, "split": "train", "row_idx": 508, "lang": "ja", "text": "<image>\n細いゴムボールと同じ色があるの?"}
+{"uid": "000525", "hf_id": "000525", "idx": 525, "split": "train", "row_idx": 509, "lang": "ja", "text": "<image>\n色の球はどれぐらい大きい?"}
+{"uid": "000526", "hf_id": "000526", "idx": 526, "split": "train", "row_idx": 510, "lang": "ja", "text": "<image>\n灰色の質球よりも 質球の右側には 大きい金属物体が少ないのでしょうか?"}
+{"uid": "000554", "hf_id": "000554", "idx": 554, "split": "train", "row_idx": 511, "lang": "ja", "text": "<image>\n灰色 な 物 に 比べ て,大きな 金属 ブロック の 量 が 少なく ない の は なぜ です か."}
+{"uid": "000555", "hf_id": "000555", "idx": 555, "split": "train", "row_idx": 512, "lang": "ja", "text": "<image>\n円筒と同じ素材で作られた小さな灰色のブロックはあるのか?"}
+{"uid": "000557", "hf_id": "000557", "idx": 557, "split": "train", "row_idx": 513, "lang": "ja", "text": "<image>\n車両とは考えられないものがあるか教えてくれ?"}
+{"uid": "000558", "hf_id": "000558", "idx": 558, "split": "train", "row_idx": 514, "lang": "ja", "text": "<image>\n大きな青い球が見えるか?"}
+{"uid": "000563", "hf_id": "000563", "idx": 563, "split": "train", "row_idx": 515, "lang": "ja", "text": "<image>\n大きい灰色の物体に対して,茶色のブロックはどこに位置しているのでしょうか?"}
+{"uid": "000569", "hf_id": "000569", "idx": 569, "split": "train", "row_idx": 516, "lang": "ja", "text": "<image>\nゴムシリンダーの色と一致する他の物は何枚あるの?"}
+{"uid": "000593", "hf_id": "000593", "idx": 593, "split": "train", "row_idx": 517, "lang": "ja", "text": "<image>\n緑のブロックの左側の小さなゴムモノは 赤い小さな光る物体と同じ形なのでしょうか?"}
+{"uid": "000595", "hf_id": "000595", "idx": 595, "split": "train", "row_idx": 518, "lang": "ja", "text": "<image>\nどれだけの輝くアイテムは 大きなブロックか紫色の円筒か?"}
+{"uid": "000597", "hf_id": "000597", "idx": 597, "split": "train", "row_idx": 519, "lang": "ja", "text": "<image>\nその小さな金属の形は何の色で 輝く大きな円筒に一致する?"}
+{"uid": "000601", "hf_id": "000601", "idx": 601, "split": "train", "row_idx": 520, "lang": "ja", "text": "<image>\n微小なキューブやシアンマットキューブの左側に何ブロックあるか?"}
+{"uid": "000607", "hf_id": "000607", "idx": 607, "split": "train", "row_idx": 521, "lang": "ja", "text": "<image>\n緑色と紫色のマット物体は同じサイズですか?"}
+{"uid": "000611", "hf_id": "000611", "idx": 611, "split": "train", "row_idx": 522, "lang": "ja", "text": "<image>\n灰色の物体は 大きい円筒や 小さな金属立方体で 何枚あるのでしょうか?"}
+{"uid": "000616", "hf_id": "000616", "idx": 616, "split": "train", "row_idx": 523, "lang": "ja", "text": "<image>\n金属のものは サイアンゴムと同じ形なのか?"}
+{"uid": "000623", "hf_id": "000623", "idx": 623, "split": "train", "row_idx": 524, "lang": "ja", "text": "<image>\nどんな色?"}
+{"uid": "000624", "hf_id": "000624", "idx": 624, "split": "train", "row_idx": 525, "lang": "ja", "text": "<image>\nこの小さな球は その小さな青いブロックと同じ素材でできているのか?"}
+{"uid": "000642", "hf_id": "000642", "idx": 642, "split": "train", "row_idx": 526, "lang": "ja", "text": "<image>\nどれだけの輝く物体が1つ追加されたか教えて下さい."}
+{"uid": "000650", "hf_id": "000650", "idx": 650, "split": "train", "row_idx": 527, "lang": "ja", "text": "<image>\n青い光な物体か?"}
+{"uid": "000652", "hf_id": "000652", "idx": 652, "split": "train", "row_idx": 528, "lang": "ja", "text": "<image>\n大きいボールと同じ色があるものはないか?"}
+{"uid": "000654", "hf_id": "000654", "idx": 654, "split": "train", "row_idx": 529, "lang": "ja", "text": "<image>\n緑の前にある黄色い円筒は 黄色い小さなものと同じ大きさでしょうか?"}
+{"uid": "000659", "hf_id": "000659", "idx": 659, "split": "train", "row_idx": 530, "lang": "ja", "text": "<image>\nサイエンスの他のものは シアンマットシリンダーと同じサイズでしょうか?"}
+{"uid": "000667", "hf_id": "000667", "idx": 667, "split": "train", "row_idx": 531, "lang": "ja", "text": "<image>\n緑のゴムが小さい灰色のゴムと同じ大きさですか?"}
+{"uid": "000669", "hf_id": "000669", "idx": 669, "split": "train", "row_idx": 532, "lang": "ja", "text": "<image>\nゴムキューブの色に一致するシリンダーはあるのか?"}
+{"uid": "000673", "hf_id": "000673", "idx": 673, "split": "train", "row_idx": 533, "lang": "ja", "text": "<image>\n緑の円筒は どこからできている?"}
+{"uid": "000676", "hf_id": "000676", "idx": 676, "split": "train", "row_idx": 534, "lang": "ja", "text": "<image>\n黄色の物体はゴムブロックかキューブか?"}
+{"uid": "000681", "hf_id": "000681", "idx": 681, "split": "train", "row_idx": 535, "lang": "ja", "text": "<image>\n輝くシリンダーの色は 隣にあるゴムと同じですか?"}
+{"uid": "000684", "hf_id": "000684", "idx": 684, "split": "train", "row_idx": 536, "lang": "ja", "text": "<image>\n緑色の小さな円筒の隣にある緑の物体の右側の大きな物体の前にある円筒は あるサイズですか? そのサイズは?"}
+{"uid": "000692", "hf_id": "000692", "idx": 692, "split": "train", "row_idx": 537, "lang": "ja", "text": "<image>\nマットキューブと同じサイズに黄色いものがありますか? 答えに一言か一言を教えてください."}
+{"uid": "000695", "hf_id": "000695", "idx": 695, "split": "train", "row_idx": 538, "lang": "ja", "text": "<image>\n緑のゴムオブジェクトと同じ形を 共有する他の物は何?"}
+{"uid": "000697", "hf_id": "000697", "idx": 697, "split": "train", "row_idx": 539, "lang": "ja", "text": "<image>\n黄色い金属の前にある灰色のものの背後に 灰色の小さな毛細かいものがどんな形をしているのか?"}
+{"uid": "000703", "hf_id": "000703", "idx": 703, "split": "train", "row_idx": 540, "lang": "ja", "text": "<image>\n緑色の金属の物体と同じ形があるものがありますか?"}
+{"uid": "000704", "hf_id": "000704", "idx": 704, "split": "train", "row_idx": 541, "lang": "ja", "text": "<image>\n青い金属球の右側にある金属立方体の前に シアン金属球の右側にある球がありますか? その大きさは?"}
+{"uid": "000705", "hf_id": "000705", "idx": 705, "split": "train", "row_idx": 542, "lang": "ja", "text": "<image>\n黄色い立方体 は 青い 対象 の 背 で ある 円筒 と 同じ 材料 で でき て いる の でしょ う か."}
+{"uid": "000706", "hf_id": "000706", "idx": 706, "split": "train", "row_idx": 543, "lang": "ja", "text": "<image>\n大きい茶色の金属立方形と比べると 大きいマット物体はどこにあり? どんな形なのか?"}
+{"uid": "000715", "hf_id": "000715", "idx": 715, "split": "train", "row_idx": 544, "lang": "ja", "text": "<image>\n緑の飛行機よりも バイクがカメラに近づいているか教えて下さい 最後には答えください"}
+{"uid": "000736", "hf_id": "000736", "idx": 736, "split": "train", "row_idx": 545, "lang": "ja", "text": "<image>\n黄色い金属の大きさと同じ形です."}
+{"uid": "000740", "hf_id": "000740", "idx": 740, "split": "train", "row_idx": 546, "lang": "ja", "text": "<image>\n巨大な金属シリンダーの色と一致するものは 何種類あるのでしょうか?"}
+{"uid": "000749", "hf_id": "000749", "idx": 749, "split": "train", "row_idx": 547, "lang": "ja", "text": "<image>\nサイアンシリンダーの材料は何でしょう?"}
+{"uid": "000751", "hf_id": "000751", "idx": 751, "split": "train", "row_idx": 548, "lang": "ja", "text": "<image>\n黄色い小さな物体は サイアン色の大きな物体の左側の紫色の物体と同じ素材でできているか?"}
+{"uid": "000752", "hf_id": "000752", "idx": 752, "split": "train", "row_idx": 549, "lang": "ja", "text": "<image>\n灰色の物と小さなゴムボールが 同じ色なのか?"}
+{"uid": "000754", "hf_id": "000754", "idx": 754, "split": "train", "row_idx": 550, "lang": "ja", "text": "<image>\n紫色の輝く物体は 赤ブロックの裏にある 黄色い金属立方形と同じ大きさでしょうか?"}
+{"uid": "000758", "hf_id": "000758", "idx": 758, "split": "train", "row_idx": 551, "lang": "ja", "text": "<image>\n薄い物は何枚か 紫色の物体か 緑色の円筒です"}
+{"uid": "000774", "hf_id": "000774", "idx": 774, "split": "train", "row_idx": 552, "lang": "ja", "text": "<image>\n青いものと同じ素材で作られたブラウンシリンダーはどのくらいの大きさですか?"}
+{"uid": "000779", "hf_id": "000779", "idx": 779, "split": "train", "row_idx": 553, "lang": "ja", "text": "<image>\n緑の物は何の素材か?"}
+{"uid": "000781", "hf_id": "000781", "idx": 781, "split": "train", "row_idx": 554, "lang": "ja", "text": "<image>\n赤い球よりも右側には 茶色のものが多いのでしょうか?"}
+{"uid": "000784", "hf_id": "000784", "idx": 784, "split": "train", "row_idx": 555, "lang": "ja", "text": "<image>\n黄色いゴムが 特定のサイズですか?"}
+{"uid": "000789", "hf_id": "000789", "idx": 789, "split": "train", "row_idx": 556, "lang": "ja", "text": "<image>\n青いマットブロックの横にある大きな物体は特定の材料でできているのか?"}
+{"uid": "000830", "hf_id": "000830", "idx": 830, "split": "train", "row_idx": 557, "lang": "ja", "text": "<image>\n青い金属の物体の裏にある球は 青い金属の物体の隣にあるゴムブロックと同じ大きさですか?"}
+{"uid": "000831", "hf_id": "000831", "idx": 831, "split": "train", "row_idx": 558, "lang": "ja", "text": "<image>\n紅色のゴム球は赤色のゴム球と同じ色ですか?"}
+{"uid": "000838", "hf_id": "000838", "idx": 838, "split": "train", "row_idx": 559, "lang": "ja", "text": "<image>\n灰色の物体の左側には 大きい紫色の物があるのでしょうか?"}
+{"uid": "000842", "hf_id": "000842", "idx": 842, "split": "train", "row_idx": 560, "lang": "ja", "text": "<image>\nサイアンシリンダーと同じ素材で 何ものものでも作られています?"}
+{"uid": "000844", "hf_id": "000844", "idx": 844, "split": "train", "row_idx": 561, "lang": "ja", "text": "<image>\n画像の最大の車両の色を教えてください. そして最後に答えを教えてください."}
+{"uid": "000853", "hf_id": "000853", "idx": 853, "split": "train", "row_idx": 562, "lang": "ja", "text": "<image>\nサイアンで輝くような形があるの?"}
+{"uid": "000859", "hf_id": "000859", "idx": 859, "split": "train", "row_idx": 563, "lang": "ja", "text": "<image>\n緑色の物体と同じ形に 小さく緑色で 形状が同じでしょうか?"}
+{"uid": "000860", "hf_id": "000860", "idx": 860, "split": "train", "row_idx": 564, "lang": "ja", "text": "<image>\n球の後ろにある小さな灰色の物体には 大きな茶色の円筒と同じ物質があるのでしょうか?"}
+{"uid": "000862", "hf_id": "000862", "idx": 862, "split": "train", "row_idx": 565, "lang": "ja", "text": "<image>\n巨大な球の後ろに 金属シリンダー左側に 大きな物体がありますか?"}
+{"uid": "000863", "hf_id": "000863", "idx": 863, "split": "train", "row_idx": 566, "lang": "ja", "text": "<image>\nゴム球は輝く球と同じ色ですか?"}
+{"uid": "000866", "hf_id": "000866", "idx": 866, "split": "train", "row_idx": 567, "lang": "ja", "text": "<image>\n何でできている?"}
+{"uid": "000874", "hf_id": "000874", "idx": 874, "split": "train", "row_idx": 568, "lang": "ja", "text": "<image>\nその巨大な金属の形は何でしょう?"}
+{"uid": "000881", "hf_id": "000881", "idx": 881, "split": "train", "row_idx": 569, "lang": "ja", "text": "<image>\n青い球と同じ素材で作られた灰色のものは どんな形?"}
+{"uid": "000884", "hf_id": "000884", "idx": 884, "split": "train", "row_idx": 570, "lang": "ja", "text": "<image>\n紫色の物体と灰色のゴムシリンダーの背後の小さなマットな物体は同じ形なのでしょうか?"}
+{"uid": "000888", "hf_id": "000888", "idx": 888, "split": "train", "row_idx": 571, "lang": "ja", "text": "<image>\n赤いものと同じサイズで他の何物があるか? 答えを一言で言ってみてください."}
+{"uid": "000892", "hf_id": "000892", "idx": 892, "split": "train", "row_idx": 572, "lang": "ja", "text": "<image>\n青いゴム球と同じ大きさ?"}
+{"uid": "000895", "hf_id": "000895", "idx": 895, "split": "train", "row_idx": 573, "lang": "ja", "text": "<image>\n黄色いゴムブロックの左側にどれだけの大きな物がありますか?"}
+{"uid": "000896", "hf_id": "000896", "idx": 896, "split": "train", "row_idx": 574, "lang": "ja", "text": "<image>\nサイアン金属シリンダーと 巨大な金属の背後のボールが 同じ大きさでしょうか?"}
+{"uid": "000897", "hf_id": "000897", "idx": 897, "split": "train", "row_idx": 575, "lang": "ja", "text": "<image>\nサイアン金属の小さな球の左側に サイアン金属のキューブや緑色のマットブロックがいくつあるか? 数字や簡潔な説明を教えてください."}
+{"uid": "000900", "hf_id": "000900", "idx": 900, "split": "train", "row_idx": 576, "lang": "ja", "text": "<image>\n灰色のオブジェクトは サイズは何? 小さなシリンダーと同じ素材でできている?"}
+{"uid": "000901", "hf_id": "000901", "idx": 901, "split": "train", "row_idx": 577, "lang": "ja", "text": "<image>\n大きいシリンダーの左側にどれだけの大きな物やゴム物があるか? 答えを教えて下さい."}
+{"uid": "000904", "hf_id": "000904", "idx": 904, "split": "train", "row_idx": 578, "lang": "ja", "text": "<image>\nどんな形が色見ながら 小さな金属筒と同じでしょうか?"}
+{"uid": "000910", "hf_id": "000910", "idx": 910, "split": "train", "row_idx": 579, "lang": "ja", "text": "<image>\nサイアンボールに匹敵するマットキューブは?"}
+{"uid": "000913", "hf_id": "000913", "idx": 913, "split": "train", "row_idx": 580, "lang": "ja", "text": "<image>\n黄色いマット球はどれくらいあるの?"}
+{"uid": "000914", "hf_id": "000914", "idx": 914, "split": "train", "row_idx": 581, "lang": "ja", "text": "<image>\n同じ素材でできているか?"}
+{"uid": "000916", "hf_id": "000916", "idx": 916, "split": "train", "row_idx": 582, "lang": "ja", "text": "<image>\n紫色の球はゴム球の裏にあるシリンダーと同じ素材でできているか?"}
+{"uid": "000917", "hf_id": "000917", "idx": 917, "split": "train", "row_idx": 583, "lang": "ja", "text": "<image>\nその小さな紫色のものがどんな形?"}
+{"uid": "000922", "hf_id": "000922", "idx": 922, "split": "train", "row_idx": 584, "lang": "ja", "text": "<image>\n黄色い金属の物体と同じ形があるものがありますか?"}
+{"uid": "000930", "hf_id": "000930", "idx": 930, "split": "train", "row_idx": 585, "lang": "ja", "text": "<image>\n灰色のゴムモノは青のモノと同じ形ですか?"}
+{"uid": "000942", "hf_id": "000942", "idx": 942, "split": "train", "row_idx": 586, "lang": "ja", "text": "<image>\n紫色の物体と同じ形が違うが,他の金属物体は何色?"}
+{"uid": "000945", "hf_id": "000945", "idx": 945, "split": "train", "row_idx": 587, "lang": "ja", "text": "<image>\n巨大な金属の前にある物体が ブラウンマットシリンダーの後ろに存在する物体は?"}
+{"uid": "000957", "hf_id": "000957", "idx": 957, "split": "train", "row_idx": 588, "lang": "ja", "text": "<image>\n紫と茶色の小さな物体の左側のサイアン物体は同じ形なのでしょうか?"}
+{"uid": "000964", "hf_id": "000964", "idx": 964, "split": "train", "row_idx": 589, "lang": "ja", "text": "<image>\n青い球の右側にある大きな灰色のゴム立方体の後ろにあるゴム球の前にある 茶色のゴム球はどのくらい大きいのでしょうか?"}
+{"uid": "000966", "hf_id": "000966", "idx": 966, "split": "train", "row_idx": 590, "lang": "ja", "text": "<image>\nブロックと同じ色で金属球があるか?"}
+{"uid": "000968", "hf_id": "000968", "idx": 968, "split": "train", "row_idx": 591, "lang": "ja", "text": "<image>\n青い球の右側にある大きな緑色のマットシリンダーの残りは どんな形をしているのでしょうか?"}
+{"uid": "000969", "hf_id": "000969", "idx": 969, "split": "train", "row_idx": 592, "lang": "ja", "text": "<image>\n緑色の光る物体は シアンマット物と同じ形ですか? その大きさは?"}
+{"uid": "000971", "hf_id": "000971", "idx": 971, "split": "train", "row_idx": 593, "lang": "ja", "text": "<image>\n緑色の小さなマット物よりも 小さくて 茶色の立方体が少ないのか?"}
+{"uid": "000979", "hf_id": "000979", "idx": 979, "split": "train", "row_idx": 594, "lang": "ja", "text": "<image>\n紫色の立方体の前にある 細かいシアン金属の右側にある 輝くものがどんな形をしているのか?"}
+{"uid": "000984", "hf_id": "000984", "idx": 984, "split": "train", "row_idx": 595, "lang": "ja", "text": "<image>\n青い円筒型は 青い円筒型よりも多いのでしょうか?"}
+{"uid": "000985", "hf_id": "000985", "idx": 985, "split": "train", "row_idx": 596, "lang": "ja", "text": "<image>\n丸の左側のブロックは 大きなゴム球と同じ色ですか?"}
+{"uid": "000990", "hf_id": "000990", "idx": 990, "split": "train", "row_idx": 597, "lang": "ja", "text": "<image>\n巨大な金属シリンダーと同じ色がある?"}
+{"uid": "000991", "hf_id": "000991", "idx": 991, "split": "train", "row_idx": 598, "lang": "ja", "text": "<image>\n円と関係があるものはないのか?"}
+{"uid": "000993", "hf_id": "000993", "idx": 993, "split": "train", "row_idx": 599, "lang": "ja", "text": "<image>\n灰色の球と同じ素材で 何枚もの物を作りましたか?"}

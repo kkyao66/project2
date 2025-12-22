@@ -1,0 +1,49 @@
+{
+  "benchmark_id": "benchmark_v1_60_5lang_5voice",
+  "texts": {
+    "en": "texts/en_60.jsonl",
+    "zh": "texts/zh_60.jsonl",
+    "ja": "texts/ja_60.jsonl",
+    "fr": "texts/fr_60.jsonl",
+    "de": "texts/de_60.jsonl"
+  },
+  "audio": {
+    "sample_rate": 24000,
+    "format": "wav_pcm16"
+  },
+  "output": {
+    "root_dir": "benchmark_v1",
+    "audio_dir": "benchmark_v1/audio",
+    "metadata_path": "benchmark_v1/metadata.jsonl",
+    "logs_dir": "benchmark_v1/logs"
+  },
+  "voice_policy": {
+    "standard_voice_set": [
+      "voice01",
+      "voice02",
+      "voice03",
+      "voice04",
+      "voice05"
+    ],
+    "notes": "FishSpeech uses the standard voice set via voice cloning (reference_id=voice01..voice05). ChatTTS does not do cloning; it uses preset speaker seeds and is tagged as preset."
+  },
+  "models": {
+    "chattts": {
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "voice_mode": "preset_seed",
+      "voices": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "inference": {
+        "seed": 1234
+      }
+    }
+  }
+}
