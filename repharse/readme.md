@@ -27,21 +27,15 @@ On your local machine:
 ssh bristen
 On bristen:
 
-bash
-复制代码
 mkdir -p ~/proj/rephrase_clevr
 cd ~/proj/rephrase_clevr
 pwd
 Expected path pattern:
 
-text
-复制代码
 /users/<YOUR_USER>/proj/rephrase_clevr
 2) (Optional) Start an interactive GPU shell
 GPU is strongly recommended for a 7B-class model. If you only run the dataset dump step (Section 4), GPU is not required.
 
-bash
-复制代码
 srun -A <project_account> --gres=gpu:1 --mem=<memory> --time=<walltime> --pty bash
 Notes:
 
@@ -52,21 +46,15 @@ If you are not inside an srun GPU session, torch.cuda.is_available() will typica
 3) Activate the conda environment
 Inside the node (login or GPU session):
 
-bash
-复制代码
 source ~/.bashrc
 conda activate <your_env>
 If your shell does not auto-initialize conda, explicitly load it (x86 example):
 
-bash
-复制代码
 export PATH=/users/$USER/miniconda3_x86/bin:$PATH
 source /users/$USER/miniconda3_x86/etc/profile.d/conda.sh
 conda activate <your_env>
 Sanity checks:
 
-bash
-复制代码
 python -c "import torch; print('CUDA:', torch.cuda.is_available())"
 python -c "import transformers; print('transformers OK')"
 python -c "import datasets; print('datasets OK')"
@@ -85,8 +73,6 @@ mvp-lab/LLaVA-OneVision-1.5-Instruct-Data
 
 This dataset provides multiple subsets/configurations. In this pipeline, we select the CLEVR subset by passing config_name="CLEVR" to datasets.load_dataset, i.e.:
 
-python
-复制代码
 ds = load_dataset(
     "mvp-lab/LLaVA-OneVision-1.5-Instruct-Data",
     "CLEVR",
@@ -98,8 +84,6 @@ We then stream the train split and take the first N samples (default N=1000).
 4.2 Dump script (streaming)
 Create the script:
 
-bash
-复制代码
 cat > dump_clevr_1000.py << 'PY'
 import json
 from datasets import load_dataset
@@ -128,13 +112,9 @@ print(f"[OK] wrote {N} samples -> {OUT}")
 PY
 Run it:
 
-bash
-复制代码
 python dump_clevr_1000.py
 Verify:
 
-bash
-复制代码
 wc -l clevr_first1000_raw.jsonl
 head -n 1 clevr_first1000_raw.jsonl
 Expected:
@@ -227,4 +207,5 @@ python rephrase_clevr_1000.py \
   --max_new_tokens 96 \
   --infile clevr_first1000_raw.jsonl \
   --outfile clevr_first1000_rephrased.jsonl
+
 
