@@ -1,15 +1,21 @@
 # FishSpeech — Batch Generation & Benchmark Guide (CSCS Bristen / HPC)
 
-This document describes the **end-to-end, reproducible FishSpeech pipeline** we used on **CSCS Bristen** to generate **multi-language** and **multi-voice** speech audio from **JSONL text inputs**.
+This document describes the **end-to-end, reproducible FishSpeech pipeline** used on **CSCS Bristen** to generate **multi-language** and **multi-voice** speech audio from **JSONL text inputs**, and how it links to the repository’s **scripts**, **configs**, and **server entrypoints**.
 
-It covers the full invocation chain:
+It covers:
 
 - JSONL input → start FishSpeech API server → register reference voices → batch generation
 - Resume / skip logic (checkpointing by existing WAVs)
 - Output directory structure and artifacts
-- Common pitfalls we encountered (proxy, msgpack, reference registration)
+- Common pitfalls encountered (proxy, msgpack, reference registration)
+- How the following repo components fit together:
+  - `scripts/fishspeech_env.sh`
+  - `scripts/start_server.sh`
+  - `configs/benchmark_fishspeech_60_{en,de,fr,ja,zh}_v1.json`
+  - `tools/api_server.py`
+  - `requirements.txt`
 
-> This guide is written for **HPC / CLI usage** and assumes you do **not** use WebUI or Docker.
+> This guide is written for **HPC / CLI usage** and assumes **no WebUI** and **no Docker**.
 
 ---
 
@@ -37,116 +43,171 @@ FishSpeech runs as a **local HTTP service** plus a **batch client**:
 
 ---
 
-## 1) Repository paths and key files (as used on Bristen)
+## 1) Repository layout and linkage (scripts / configs / entrypoints)
 
-### 1.1 FishSpeech repository
+### 1.1 Key files and roles
 
-Example path (your deployment may differ):
+- `requirements.txt`  
+  Python dependencies required by the FishSpeech server and batch generation scripts.
 
-/users/<USER>/tts_clean/fish-speech
-Key scripts:
+- `scripts/fishspeech_env.sh`  
+  Centralized runtime environment variables (checkpoint paths, python executable, proxy/no_proxy).  
+  Both server and batch should source this script to ensure consistent settings.
 
+- `scripts/start_server.sh`  
+  Canonical server launcher. Typically:
+  - `cd` into repo root
+  - `source scripts/fishspeech_env.sh`
+  - launches `tools/api_server.py` via `nohup` (or equivalent)
+  - writes server logs to a known location
+
+- `tools/api_server.py`  
+  The actual FishSpeech HTTP server entrypoint. It loads checkpoints and listens on `127.0.0.1:7860`.
+
+- `configs/benchmark_fishspeech_60_<lang>_v1.json`  
+  Benchmark configuration files for the “60 sentences” benchmark, one per language (`en/de/fr/ja/zh`).  
+  These configs are the **single source of truth** for benchmark runs (texts, voices, audio settings, inference options, output layout).
+
+### 1.2 Invocation chain (high-level)
+
+```text
+requirements.txt
+   ↓ (install deps)
 scripts/fishspeech_env.sh
-Sets environment variables (checkpoints, python path, proxy/no_proxy, etc.)
-
+   ↓ (export ckpt/proxy/python vars)
 scripts/start_server.sh
-Starts the FishSpeech API server (usually via nohup) and writes a server log
+   ↓ (launch)
+tools/api_server.py  (serving on 127.0.0.1:7860)
+   ↓ (client requests; same node)
+batch generation / benchmark runner
+   ↓ (driven by)
+configs/benchmark_fishspeech_60_<lang>_v1.json
+   ↓
+OUTBASE/audio/<lang>/<voice>/<id>.wav + metadata_<lang>.jsonl
+````
 
-scripts/batch_generate_fishspeech.py
-Batch generation client that calls the local server and writes audio + metadata
+---
 
-(Optional) scripts/run_all_langs_nohup.sh
-Helper wrapper to run multiple languages
+## 2) Prerequisites
 
-1.2 Input JSONL (TTS inputs)
-We used one JSONL per language:
+* SSH access to Bristen
+* Slurm access to request a GPU allocation
+* A working conda environment (name may differ)
+* Internet access (for first-time model download / HF cache population, if applicable)
 
-.../tts_inputs_en.jsonl
-.../tts_inputs_fr.jsonl
-.../tts_inputs_de.jsonl
-.../tts_inputs_ja.jsonl
-.../tts_inputs_zh.jsonl
-Each line is one sample. The batch script typically supports multiple candidate text keys
-(e.g., text, instruction, prompt, sentence, transcript).
+---
 
-1.3 Output directory (OUTBASE)
-We write outputs to a single OUTBASE directory, for example:
+## 3) Install dependencies (`requirements.txt`)
 
-OUTBASE=/path/to/fishspeech_batch_out
-Typical structure:
+From repo root:
 
-fishspeech_batch_out/
-  audio/
-    en/voice01/000000.wav ...
-    en/voice02/...
-    fr/voice01/...
-    ...
-  logs/
-    server_*.log
-    <lang>_*.log
-  metadata_en.jsonl
-  failed_en.jsonl
-  metadata_fr.jsonl
-  failed_fr.jsonl
-  ...
-2) End-to-end reproduction steps (from 0 to audio)
-2.1 Allocate a GPU node (required)
+```bash
+pip install -U pip
+pip install -r requirements.txt
+```
+
+If your environment is conda-based, activate it first:
+
+```bash
+source ~/.bashrc
+conda activate <your_fishspeech_env>
+```
+
+---
+
+## 4) End-to-end reproduction steps (from 0 to audio)
+
+### 4.1 Allocate a GPU node (required)
+
 On Bristen:
 
+```bash
 ssh bristen
 srun -A <project_account> --gres=gpu:1 --mem=<memory> --time=<walltime> --pty bash
 
 hostname
 nvidia-smi | head
-Run both the server and batch generation inside this same srun session.
+```
 
-2.2 Activate environment and enter the repo
+Run both the server and batch generation inside this same `srun` session.
+
+### 4.2 Activate environment and enter the repo
+
+```bash
 source ~/.bashrc
 conda activate <your_fishspeech_env>
 
 cd /users/<USER>/tts_clean/fish-speech
 source scripts/fishspeech_env.sh
-Recommended sanity check:
+```
 
+Sanity checks:
+
+```bash
 which python
 python -c "import torch; print('cuda?', torch.cuda.is_available())"
-2.3 Start the API server and verify the port
-Start server (tested method):
+```
 
+### 4.3 Start the API server and verify the port
+
+Start server:
+
+```bash
 bash scripts/start_server.sh
+```
+
 Wait until the port is listening:
 
+```bash
 for i in {1..120}; do
   ss -ltn | grep -q ':7860' && break
   sleep 1
 done
 ss -ltn | grep ':7860' || { echo "[FATAL] 7860 not listening"; exit 1; }
-Server logs are typically written by the start script (commonly under $HOME/tmp/ or $OUTBASE/logs/).
+```
 
-3) Reference voice management (voice01..voice05)
-FishSpeech voice control is done via reference_id.
-The batch client sends requests like:
+Server logs are typically written by `scripts/start_server.sh` (commonly under `$HOME/tmp/` or an output logs directory).
 
+---
+
+## 5) Reference voice management (voice01..voice05)
+
+FishSpeech voice control is done via `reference_id`. The batch client sends requests like:
+
+```json
 {"text": "...", "format": "wav", "reference_id": "voice01"}
-So the server must have voice01..voice05 registered.
+```
 
-3.1 Proxy pitfall: curl may return HTML (proxy interception)
-If curl http://127.0.0.1:7860/... returns HTML, your request is going through a proxy.
+So the server must have `voice01..voice05` registered.
+
+### 5.1 Proxy pitfall: `curl` may return HTML (proxy interception)
+
+If `curl http://127.0.0.1:7860/...` returns HTML, your request is going through a proxy.
 
 Fix:
 
+```bash
 export NO_PROXY="127.0.0.1,localhost"
 export no_proxy="$NO_PROXY"
+```
+
 Always call the local server with:
 
+```bash
 curl --noproxy '*' -i http://127.0.0.1:7860/v1/references/list | head
-3.2 /v1/references/list returns msgpack (not JSON)
+```
+
+### 5.2 `/v1/references/list` returns msgpack (not JSON)
+
 The list endpoint may return:
 
+```text
 content-type: application/msgpack
+```
 
 Decode with Python:
 
+```bash
 python - <<'PY'
 import requests, msgpack
 r = requests.get(
@@ -155,9 +216,13 @@ r = requests.get(
 )
 print(msgpack.unpackb(r.content, raw=False))
 PY
-3.3 Register references: field name is audio (not file)
-To add a reference, the correct multipart field is audio=@...wav:
+```
 
+### 5.3 Register references: field name is `audio` (not `file`)
+
+To add a reference, the correct multipart field is `audio=@...wav`:
+
+```bash
 REFDIR=/path/to/reference_wavs
 PROMPT_TEXT="This is the reference voice prompt."
 
@@ -165,8 +230,11 @@ curl --noproxy '*' -sS -X POST "http://127.0.0.1:7860/v1/references/add" \
   -F "id=voice01" \
   -F "text=$PROMPT_TEXT" \
   -F "audio=@$REFDIR/voice01.wav"
+```
+
 Batch-add five voices:
 
+```bash
 REFDIR=/path/to/reference_wavs
 PROMPT_TEXT="This is the reference voice prompt."
 
@@ -179,18 +247,51 @@ for id in voice01 voice02 voice03 voice04 voice05; do
     -F "audio=@$wav" \
     > /tmp/add_${id}.resp
 done
+```
 
-4) Batch generation (per language)
-4.1 Why OUTBASE matters (skip/resume behavior)
-batch_generate_fishspeech.py typically skips generation if the target WAV file already exists.
+### 5.4 Reference state inconsistency (“already exists” but list is empty)
+
+If `/v1/references/add` reports “already exists” but `/v1/references/list` shows none, the safest recovery is:
+
+1. stop server
+2. backup and rebuild repo-local `references/`
+3. restart server
+4. re-add voices
+
+Example:
+
+```bash
+# stop server (example; adapt to your start_server.sh implementation)
+PID=$(ss -ltnp | sed -n 's/.*pid=\([0-9]\+\).*/\1/p' | head -n 1)
+kill "$PID"
+sleep 2
+
+cd /users/<USER>/tts_clean/fish-speech
+[ -d references ] && mv references references_backup_$(date +%F_%H%M%S)
+mkdir -p references
+
+bash scripts/start_server.sh
+for i in {1..120}; do ss -ltn | grep -q ':7860' && break; sleep 1; done
+
+# re-add voice01..05 (see Section 5.3)
+```
+
+---
+
+## 6) Batch generation (per language)
+
+### 6.1 Why OUTBASE matters (skip/resume behavior)
+
+`batch_generate_fishspeech.py` typically **skips** generation if the target WAV file already exists.
 
 This is useful for resume, but it also means:
 
-If you change reference voices and reuse the same OUTBASE, old WAVs will be skipped.
+* If you change reference voices and reuse the same OUTBASE, old WAVs will be skipped.
+* After updating references, use a new OUTBASE (recommended), or delete previous audio.
 
-After updating references, use a new OUTBASE (recommended), or delete previous audio.
+### 6.2 Run one language directly (example: zh)
 
-4.2 Run one language (example: zh)
+```bash
 JSONL=/path/to/tts_inputs_zh.jsonl
 OUTBASE=/path/to/fishspeech_batch_out_zh_run
 
@@ -203,63 +304,165 @@ nohup python -u scripts/batch_generate_fishspeech.py \
   > "$OUTBASE/logs/zh_run.log" 2>&1 &
 
 echo "[OK] log: $OUTBASE/logs/zh_run.log"
-4.3 Monitor progress
+```
 
+### 6.3 Monitor progress
+
+```bash
 watch -n 60 "echo WAVS=\$(find $OUTBASE/audio/zh -name '*.wav' 2>/dev/null | wc -l); tail -n 5 $OUTBASE/logs/zh_run.log"
-5) Resume / checkpointing (how it works)
+```
+
+---
+
+## 7) Run the “60 sentences benchmark” from configs (recommended)
+
+This repository provides benchmark configs:
+
+* `configs/benchmark_fishspeech_60_en_v1.json`
+* `configs/benchmark_fishspeech_60_de_v1.json`
+* `configs/benchmark_fishspeech_60_fr_v1.json`
+* `configs/benchmark_fishspeech_60_ja_v1.json`
+* `configs/benchmark_fishspeech_60_zh_v1.json`
+
+These configs are intended to drive a consistent benchmark run per language.
+
+### 7.1 Typical usage pattern
+
+If your project uses a unified benchmark runner script, run:
+
+```bash
+python <your_benchmark_runner>.py --config configs/benchmark_fishspeech_60_en_v1.json
+```
+
+Repeat for other languages by swapping the config file.
+
+> Note: the exact runner entrypoint depends on your repo (e.g., `run_benchmark_generate.py`).
+> Replace `<your_benchmark_runner>.py` with the actual script used in your codebase.
+
+### 7.2 Expected outputs
+
+Outputs should follow the benchmark output convention, e.g.:
+
+```text
+<OUTBASE>/
+  audio/
+    <lang>/voice01/*.wav
+    <lang>/voice02/*.wav
+    ...
+  metadata_<lang>.jsonl
+  failed_<lang>.jsonl
+  logs/
+    <lang>_*.log
+```
+
+---
+
+## 8) Resume / checkpointing (how it works)
+
 The batch script implements resume by checking the expected output file path:
 
-If a WAV already exists (and passes a basic validity check), it is skipped
-
-Re-running the same command fills in missing indices
+* If a WAV already exists (and passes a basic validity check), it is skipped
+* Re-running the same command fills in missing indices
 
 This is why you can safely re-run the same command after interruptions.
 
-6) Completion checks (recommended)
-6.1 Total count
+---
+
+## 9) Completion checks (recommended)
+
+### 9.1 Total count
+
+```bash
 find "$OUTBASE/audio/zh" -type f -name '*.wav' | wc -l
-6.2 Per-voice distribution
+```
+
+### 9.2 Per-voice distribution
+
+```bash
 for v in voice01 voice02 voice03 voice04 voice05; do
   printf "zh %s: " "$v"
   find "$OUTBASE/audio/zh/$v" -type f -name '*.wav' 2>/dev/null | wc -l
 done
-6.3 Detect empty or suspiciously small WAV files (optional)
+```
+
+### 9.3 Detect empty or suspiciously small WAV files (optional)
+
+```bash
 find "$OUTBASE/audio/zh" -type f -name '*.wav' -size 0 -print | head
 find "$OUTBASE/audio/zh" -type f -name '*.wav' -size -10k -print | head
-7) Common issues (what we actually hit)
-7.1 curl returns HTML instead of API output
-Cause: proxy interception of localhost requests.
-Fix: always use:
+```
 
+---
+
+## 10) Common issues (what we actually hit)
+
+### 10.1 `curl` returns HTML instead of API output
+
+Cause: proxy interception of localhost requests. Fix: always use:
+
+```bash
 export NO_PROXY="127.0.0.1,localhost"
 export no_proxy="$NO_PROXY"
 curl --noproxy '*' ...
-7.2 /v1/references/list is not JSON
-It returns msgpack (application/msgpack). Decode with Python + msgpack (see Section 3.2).
+```
 
-7.3 /v1/references/add returns 422
-Usually the multipart field is wrong. Use audio=@...wav (not file=@...).
+### 10.2 `/v1/references/list` is not JSON
 
-7.4 tools/api_client.py fails due to pyaudio
-On HPC, pyaudio is often missing. Prefer:
+It returns msgpack (`application/msgpack`). Decode with Python + `msgpack` (see Section 5.2).
 
-curl --noproxy '*' for reference endpoints, and
+### 10.3 `/v1/references/add` returns 422
 
-Python requests + msgpack for decoding list responses
+Usually the multipart field is wrong. Use `audio=@...wav` (not `file=@...`).
 
-8) Upload reference WAVs to Bristen (example)
+### 10.4 `tools/api_client.py` fails due to `pyaudio`
+
+On HPC, `pyaudio` is often missing. Prefer:
+
+* `curl --noproxy '*'` for reference endpoints, and
+* Python `requests + msgpack` for decoding list responses
+
+---
+
+## 11) Upload reference WAVs to Bristen (example)
+
 Stage your local reference wavs as:
 
+```text
 voice01.wav
 voice02.wav
 voice03.wav
 voice04.wav
 voice05.wav
+```
+
 Then copy to Bristen:
 
+```bash
 rsync -avP /local/path/to/reference_wavs/ bristen:/path/to/reference_wavs_on_bristen/
-9) Export artifacts (metadata / audio) back to local (optional)
+```
+
+---
+
+## 12) Export artifacts (metadata / audio) back to local (optional)
+
 Example: pull metadata JSONLs back to local:
 
+```bash
 rsync -avP bristen:$OUTBASE/metadata_*.jsonl /local/path/metadata/
+```
+
 For large audio trees, consider transferring per language or per voice.
+
+---
+
+## 13) Minimal “one-screen” summary
+
+1. `ssh bristen` → `srun ... --gres=gpu:1 ... --pty bash`
+2. `conda activate <env>` → `cd fish-speech` → `source scripts/fishspeech_env.sh`
+3. `bash scripts/start_server.sh` and confirm `:7860` is listening
+4. Register `voice01..voice05` via `/v1/references/add` (`audio=@...wav`, `--noproxy '*'`)
+5. Run `python scripts/batch_generate_fishspeech.py --lang <lang> --jsonl ... --outdir ...`
+6. Re-run to resume; use a new OUTBASE when you change reference voices
+
+```
+
