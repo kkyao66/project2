@@ -55,7 +55,7 @@ flowchart TB
 
 ## Reproducible Entry Points (Recommended Order)
 
-1. **Setup:** [`benchmark/set_up.md`](benchmark/set_up.md)  
+1. **Setup:** [`benchmark/set up.md`](benchmark/set_up.md)  
 2. **Benchmark configs and runners:** [`benchmark/configs/`](benchmark/configs), [`benchmark/models/`](benchmark/models)  
 3. **Benchmark summary tables:** [`benchmark/model_comparison.md`](benchmark/model_comparison.md)  
 4. **Rephrasing:** [`rephrase/rephrase.md`](rephrase/rephrase.md)  
@@ -70,7 +70,7 @@ This repository follows a **module-first layout** aligned with the project pipel
 ## Setup (HPC / Bristen)
 
 Environment setup (Conda, Slurm GPU usage, common CSCS pitfalls) is documented here:
-- [`benchmark/set_up.md`](benchmark/set_up.md)
+- [`benchmark/set up.md`](benchmark/set_up.md)
 
 
 ### `benchmark/` — Benchmarking, model runners, evaluation, and outputs
@@ -89,11 +89,6 @@ Environment setup (Conda, Slurm GPU usage, common CSCS pitfalls) is documented h
   - [`benchmark/models/indextts/`](benchmark/models/indextts)
   - [`benchmark/models/kokoro/`](benchmark/models/kokoro)
 
-- **`benchmark/output/`** — generated audio (WAV), logs, and manifests (`metadata_*.jsonl`, `failed_*.jsonl`).  
-  See: [`benchmark/output/`](benchmark/output)
-
-- **`benchmark/eval/`** — QC and evaluation (Whisper→SBERT similarity, UTMOSv2, human labels, selector outputs, aggregated tables).  
-  See: [`benchmark/eval/`](benchmark/eval)
 
 ### `rephrase/` — Query rephrasing (spoken-style prompts)
 This module rewrites **user turns only** into a more colloquial spoken style while keeping assistant answers unchanged.
@@ -146,8 +141,7 @@ Full benchmark tables and comparisons: [`benchmark/model_comparison.md`](benchma
 
 **Reproducibility (navigation)**
 - Benchmark configs: [`benchmark/configs/`](benchmark/configs/)
-- Per-model runners and docs: [`benchmark/models/`](benchmark/models/)
-- QC + aggregation outputs: [`benchmark/eval/`](benchmark/eval/)
+- Per-model runners and docs& QC + aggregation outputs: [`benchmark/models/`](benchmark/models/)
 
 ## Query Rephrasing (Spoken-Style Prompts)
 
