@@ -70,7 +70,7 @@ This repository follows a **module-first layout** aligned with the project pipel
 ## Setup (HPC / Bristen)
 
 Environment setup (Conda, Slurm GPU usage, common CSCS pitfalls) is documented here:
-- [`benchmark/set up.md`](benchmark/set up.md)
+- [`benchmark/set_up.md`](benchmark/set_up.md)
 
 
 ### `benchmark/` — Benchmarking, model runners, evaluation, and outputs
@@ -119,7 +119,7 @@ See: [`generate/`](generate)
 
 ## Where to Start (Documentation Map)
 
-- **Benchmark and compare models:** start at [`benchmark/`](benchmark), then see [`benchmark/(benchmark/classification.ipynb)`] for QC/aggregation.
+- **Benchmark and compare models:** start at [benchmark/](benchmark/), then see [`benchmark/classification.ipynb`](benchmark/classification.ipynb) for QC/aggregation.
 - **Rephrase user queries (spoken-style):** [`rephrase/rephrase.md`](rephrase/rephrase.md)
 - **Run a specific TTS model:** pick a folder under [`benchmark/models/`](benchmark/models)
 - **Use generation inputs (per language JSONL):** [`generate/input/text/`](generate/input/text)
