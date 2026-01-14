@@ -92,8 +92,8 @@ Environment setup (Conda, Slurm GPU usage, common CSCS pitfalls) is documented h
 - **`benchmark/output/`** — generated audio (WAV), logs, and manifests (`metadata_*.jsonl`, `failed_*.jsonl`).  
   See: [`benchmark/output/`](benchmark/output)
 
-- **`benchmark/eval/`** — QC and evaluation (Whisper→SBERT similarity, UTMOSv2, human labels, selector outputs, aggregated tables).  
-  See: [`benchmark/eval/`](benchmark/eval)
+- QC and evaluation (Whisper→SBERT similarity, UTMOSv2, human labels, selector outputs, aggregated tables).  
+  
 
 ### `rephrase/` — Query rephrasing (spoken-style prompts)
 This module rewrites **user turns only** into a more colloquial spoken style while keeping assistant answers unchanged.
@@ -119,7 +119,7 @@ See: [`generate/`](generate)
 
 ## Where to Start (Documentation Map)
 
-- **Benchmark and compare models:** start at [`benchmark/`](benchmark), then see [`benchmark/eval/`](benchmark/eval) for QC/aggregation.
+- **Benchmark and compare models:** start at [`benchmark/`](benchmark), then see [`benchmark/eval/`](benchmark/classification.ipynb) for QC/aggregation.
 - **Rephrase user queries (spoken-style):** [`rephrase/rephrase.md`](rephrase/rephrase.md)
 - **Run a specific TTS model:** pick a folder under [`benchmark/models/`](benchmark/models)
 - **Use generation inputs (per language JSONL):** [`generate/input/text/`](generate/input/text)
